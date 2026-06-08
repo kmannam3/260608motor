@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "Consultation": {
+      "title": "Consultation",
+      "description": "Information submitted by users wishing to request a consultation or custom motor design guide.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID of the request"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the applicant"
+        },
+        "contact": {
+          "type": "string",
+          "description": "Contact info (phone number or email)"
+        },
+        "specs": {
+          "type": "string",
+          "description": "Technical specifications needed (e.g. voltage, horsepower)"
+        },
+        "consent": {
+          "type": "boolean",
+          "description": "Whether the applicant consented to personal information collection"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The server-side timestamp showing when the request was made"
+        }
+      },
+      "required": ["name", "contact", "specs", "consent", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/consultations/{consultationId}": {
+      "schema": "Consultation",
+      "description": "Stores user consultation and catalog request submissions."
+    }
+  }
+}
