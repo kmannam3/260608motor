@@ -69,37 +69,46 @@ export default function Header({ currentLanguage, onLanguageChange, langSet }: H
           </button>
         </nav>
 
-        {/* Right side alignment (Language Selector only) */}
-        <div className="flex items-center">
+        {/* Right side alignment (Language Selector and Admin Link) */}
+        <div className="flex items-center gap-4">
+          {/* Unobtrusive administrative access key */}
+          <button 
+            onClick={() => { window.location.pathname = '/admin'; }}
+            className="font-mono text-xs font-bold tracking-widest text-[#999999] hover:text-[#C4FF00] uppercase transition-colors cursor-pointer mr-2"
+            id="header-admin-gateway"
+          >
+            Admin
+          </button>
+
           {/* Language Selector */}
           <div className="flex items-center select-none" id="lang-selector">
-          <div className="flex bg-[#1A1C1E] border border-[#2D2F31] p-0.5" style={{ borderRadius: '0px' }}>
-            <button
-              onClick={() => onLanguageChange('KO')}
-              className={`px-3 py-1 text-[11px] font-mono font-bold tracking-wider cursor-pointer transition-all duration-200 ${
-                currentLanguage === 'KO'
-                  ? 'bg-[#C4FF00] text-black'
-                  : 'text-gray-400 hover:text-white'
-              }`}
-              style={{ borderRadius: '0px' }}
-              id="lang-btn-ko"
-            >
-              KO
-            </button>
-            <button
-              onClick={() => onLanguageChange('EN')}
-              className={`px-3 py-1 text-[11px] font-mono font-bold tracking-wider cursor-pointer transition-all duration-200 ${
-                currentLanguage === 'EN'
-                  ? 'bg-[#C4FF00] text-black'
-                  : 'text-gray-400 hover:text-white'
-              }`}
-              style={{ borderRadius: '0px' }}
-              id="lang-btn-en"
-            >
-              EN
-            </button>
+            <div className="flex bg-[#1A1C1E] border border-[#2D2F31] p-0.5" style={{ borderRadius: '0px' }}>
+              <button
+                onClick={() => onLanguageChange('KO')}
+                className={`px-3 py-1 text-[11px] font-mono font-bold tracking-wider cursor-pointer transition-all duration-200 ${
+                  currentLanguage === 'KO'
+                    ? 'bg-[#C4FF00] text-black'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+                style={{ borderRadius: '0px' }}
+                id="lang-btn-ko"
+              >
+                KO
+              </button>
+              <button
+                onClick={() => onLanguageChange('EN')}
+                className={`px-3 py-1 text-[11px] font-mono font-bold tracking-wider cursor-pointer transition-all duration-200 ${
+                  currentLanguage === 'EN'
+                    ? 'bg-[#C4FF00] text-black'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+                style={{ borderRadius: '0px' }}
+                id="lang-btn-en"
+              >
+                EN
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </header>
