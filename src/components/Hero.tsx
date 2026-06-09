@@ -23,6 +23,22 @@ export default function Hero({ langSet }: HeroProps) {
 
   return (
     <section className="relative min-h-[calc(100vh-72px)] flex items-center bg-[#000000] overflow-hidden py-16 lg:py-24">
+      {/* Background Video with instant loading and seamless replay */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover opacity-80"
+          id="hero-bg-video"
+        >
+          <source src="https://res.cloudinary.com/dw5ce5zsh/video/upload/v1780972637/20260609_%EB%AA%A8%ED%84%B0_baq4qh.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+      </div>
+
       {/* Background Technical Grid */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.08]"
